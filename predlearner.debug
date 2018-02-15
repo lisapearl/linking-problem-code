@@ -1,0 +1,69 @@
+Initial log posterior = -2590.34622207
+predicate HEAR category now = 1
+predicate HEAR-AGAIN category now = 1
+predicate HEAR-A category now = 1
+predicate HEAR-C category now = 1
+*!*Need to create new category for cat index 2
+predicate SNEEZE category now = 2
+After all 100 iterations, categories look like this:
+Category number 0 has 4 predicates:
+predicate: LIKE
+predicate: LIKE-AGAIN
+predicate: SEEM
+predicate: SEEM-AGAIN
+anim_gram_subj vs. inanim: 400.0 61.0
+anim_gram_obj vs. inanim: 230.0 192.0
+anim_gram_iobj vs. inanim: 2.0 28.0
+sem_subj as gram_subj vs. gram_obj vs. gram_iobj: 460.0 0.0 0.0
+sem_obj as gram_subj vs. gram_obj vs. gram_iobj: 0.0 875.0 0.0
+sem_iobj as gram_subj vs. gram_obj vs. gram_iobj: 0.0 0.0 42.0
+frame frequencies:
+0.000
+0.000
+0.000
+16.000
+35.000
+214.000
+29.000
+210.000
+0.000
+Category number 1 has 5 predicates:
+predicate: HEAR
+predicate: HEAR-A
+predicate: HEAR-AGAIN
+predicate: HEAR-B
+predicate: HEAR-C
+anim_gram_subj vs. inanim: 509.0 5.0
+anim_gram_obj vs. inanim: 270.0 270.0
+anim_gram_iobj vs. inanim: 21.0 10.0
+sem_subj as gram_subj vs. gram_obj vs. gram_iobj: 540.0 10.0 0.0
+sem_obj as gram_subj vs. gram_obj vs. gram_iobj: 10.0 540.0 0.0
+sem_iobj as gram_subj vs. gram_obj vs. gram_iobj: 0.0 0.0 43.0
+frame frequencies:
+10.000
+0.000
+10.000
+40.000
+0.000
+192.000
+0.000
+0.000
+258.000
+Category number 2 has 1 predicates:
+predicate: SNEEZE
+anim_gram_subj vs. inanim: 510.0 0.0
+anim_gram_obj vs. inanim: 0.0 102.0
+anim_gram_iobj vs. inanim: 0.0 1173.0
+sem_subj as gram_subj vs. gram_obj vs. gram_iobj: 510.0 0.0 0.0
+sem_obj as gram_subj vs. gram_obj vs. gram_iobj: 0.0 102.0 0.0
+sem_iobj as gram_subj vs. gram_obj vs. gram_iobj: 0.0 0.0 1173.0
+frame frequencies:
+0.000
+408.000
+0.000
+0.000
+0.000
+102.000
+0.000
+0.000
+0.000

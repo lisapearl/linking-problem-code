@@ -1,0 +1,129 @@
+HEAR
+anim-gram-subj vs. inanim: 101 1
+anim-gram-obj vs. inanim: 50 50
+anim-gram-iobj vs. inanim: 5 2
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 100 2 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 2 100 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 7
+frames: 
+TO V PP: 50
+NP V NP: 40
+NP Aux V-en: 2
+NP V CP-that: 8
+NP V CP-null: 2
+***
+LIKE
+anim-gram-subj vs. inanim: 200 15
+anim-gram-obj vs. inanim: 115 100
+anim-gram-iobj vs. inanim: 1 10
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 215 0 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 0 215 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 11
+frames: 
+TO V NP: 100
+NP V NP: 100
+NP V NP IP-TO: 15
+***
+SEEM
+anim-gram-subj vs. inanim: 10 15
+anim-gram-obj vs. inanim: 0 1
+anim-gram-iobj vs. inanim: 0 4
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 10 0 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 0 215 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 11
+frames: 
+NP V NP: 2
+NP V IP-TO: 15
+NP V CP-that: 8
+***
+SEEM-AGAIN
+anim-gram-subj vs. inanim: 10 16
+anim-gram-obj vs. inanim: 0 1
+anim-gram-iobj vs. inanim: 0 4
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 20 0 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 0 225 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 10
+frames: 
+NP V NP: 2
+NP V IP-TO: 20
+NP V CP-that: 8
+***
+LIKE-AGAIN
+anim-gram-subj vs. inanim: 180 15
+anim-gram-obj vs. inanim: 115 90
+anim-gram-iobj vs. inanim: 1 10
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 215 0 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 0 220 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 10
+frames: 
+TO V NP: 110
+NP V NP: 110
+NP V NP IP-TO: 14
+***
+HEAR-AGAIN
+anim-gram-subj vs. inanim: 102 1
+anim-gram-obj vs. inanim: 55 55
+anim-gram-iobj vs. inanim: 4 2
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 110 2 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 2 110 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 9
+frames: 
+TO V PP: 52
+NP V NP: 38
+NP Aux V-en: 2
+NP V CP-that: 8
+NP V CP-null: 2
+***
+HEAR-A
+anim-gram-subj vs. inanim: 102 1
+anim-gram-obj vs. inanim: 55 55
+anim-gram-iobj vs. inanim: 4 2
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 110 2 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 2 110 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 9
+frames: 
+TO V PP: 52
+NP V NP: 38
+NP Aux V-en: 2
+NP V CP-that: 8
+NP V CP-null: 2
+***
+HEAR-B
+anim-gram-subj vs. inanim: 102 1
+anim-gram-obj vs. inanim: 55 55
+anim-gram-iobj vs. inanim: 4 2
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 110 2 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 2 110 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 9
+frames: 
+TO V PP: 52
+NP V NP: 38
+NP Aux V-en: 2
+NP V CP-that: 8
+NP V CP-null: 2
+***
+HEAR-C
+anim-gram-subj vs. inanim: 102 1
+anim-gram-obj vs. inanim: 55 55
+anim-gram-iobj vs. inanim: 4 2
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 110 2 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 2 110 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 9
+frames: 
+TO V PP: 52
+NP V NP: 38
+NP Aux V-en: 2
+NP V CP-that: 8
+NP V CP-null: 2
+***
+SNEEZE
+anim-gram-subj vs. inanim: 10 0
+anim-gram-obj vs. inanim: 0 2
+anim-gram-iobj vs. inanim: 0 23
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 10 0 0  
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 0 2 0 
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 23
+frames: 
+NP V: 8
+NP V NP: 2
+***
