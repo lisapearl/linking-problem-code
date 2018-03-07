@@ -6,7 +6,7 @@ Code related to verb class learning with the Linking Problem
 ***Updated by Lisa Pearl, 2/15/18
 
 ***If using this code, please cite the following paper:
-Pearl, Lisa & Sprouse, Jon. 2018 manuscript. Is innate knowledge of argument linking necessary for verb class learning? Evidence from an integrated quantitative framework. University of California, Irvine and University of Connecticut, Storrs.
+Pearl, Lisa & Sprouse, Jon. 2018 manuscript. Comparing solutions to the linking problem using an integrated quantitative framework of language acquisition. University of California, Irvine and University of Connecticut, Storrs.
 
 **Note: This code requires the numpy and scipy python libraries.
 
