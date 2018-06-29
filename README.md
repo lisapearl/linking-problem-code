@@ -1,15 +1,28 @@
 # linking-problem-code
 Code related to verb class learning with the Linking Problem
 
-### Readme file for predicate_learner python code which is used to implement various theories of solving the linking problem as measured by the ability to form verb classes. ("Predicate learner" therefore refers to verb learning.)
+### Readme file for (1) predicate_learner python code which is used to
+    implement various theories of solving the linking problem as
+    measured by the ability to form verb classes ("Predicate learner"
+    therefore refers to verb learning) and (2) the Tolerance Principle
+    analysis code (derived-linking-tolp/get_pattern_counts.pl) which
+    is used to do a link-based Tolerance Principle analysis on linking
+    pattern data available in the input-representations subdirectory.
 
-***Updated by Lisa Pearl, 2/15/18
+***Updated by Lisa Pearl, 6/29/18
 
-***If using this code, please cite the following paper:
-Pearl, Lisa & Sprouse, Jon. 2018 manuscript. Comparing solutions to the linking problem using an integrated quantitative framework of language acquisition. University of California, Irvine and University of Connecticut, Storrs.
+***If using this code, please cite one or more of the following papers:
+Pearl, Lisa & Sprouse, Jon. 2018 manuscript. Comparing solutions to
+the linking problem using an integrated quantitative framework of
+language acquisition. University of California, Irvine and University
+of Connecticut, Storrs.
 
-**Note: This code requires the numpy and scipy python libraries.
+Pearl, Lisa & Sprouse, Jon. 2018 manuscript. The acquisition of linking theories: A Tolerance Principle approach to learning UTAH and rUTAH. University of California, Irvine and University of Connecticut, Storrs.
 
+***Note: The predicate_learner code requires the numpy and scipy python libraries.
+
+****************************
+predicate_learner code (learning verb classes)
 ****************************
 (1) Basic usage
 Put the predicate-learner.py file in a directory of your choice. Navigate to that directory and run the code. If your input file is the predicates.sampleinput file, you could do it this way from the command line and get the default options.
@@ -295,3 +308,75 @@ Item 7: TO V NP
 
 Item 8: TO V PP
 
+
+****************************
+get_pattern_counts.pl (link-based Tolerance Principle analysis for
+linking patterns)
+****************************
+ (1) takes in an input file encoding different properties of verb use within a corpus (formatting described below)
+     --- NOTE: Will ignore any verbs whose linking pattern usages are below a certain threshold (default 5 total usages)
+ (2) Outputs information related to whether these verbs follow certain linking patterns
+     (a) how many total verbs there are
+     (b) what the Tolerance Principle (TolP) threshold would be for that many verbs
+     (c) how many total verb instances there are 
+     (d) what the total counts are for sem-xxbj in gram-xxbj position, across all verbs
+     (e) how many verbs of the $total_verb_count total don't follow the primary pattern
+     (f) a list of which verbs follow the primary pattern (based on the Tolerance Principle) and which don't
+     (g) the analysis for individual links of the primary pattern:
+         (i) how many total verbs there are with >=threshold uses for link
+         (ii) what the TolP threshold would be for that many verbs
+         (iii) how many verbs of the $total_link_verb_count don't follow that link
+         (iv) a list of which verbs follow that primary link (based on the Tolerance Principle) and which don't
+
+
+# input format
+# (such as for brown-eve-valian.AbsCl-baker.thresh5.stats or any other file created to be used as input to the linking pattern predicate-learner python code at https://github.com/lisapearl/linking-problem-code)
+# verbs are listed out in capitals with accompanying information following
+ANSWER
+anim-gram-subj vs. inanim: 7 1
+anim-gram-obj vs. inanim: 0 8
+anim-gram-iobj vs. inanim: 0 0
+sem-subj as gram-subj vs. gram-obj vs. gram-iobj: 7 0 0
+sem-obj as gram-subj vs. gram-obj vs. gram-iobj: 1 8 0
+sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 0
+frames:
+NP VB: 1
+...
+***
+ASK
+...
+
+
+# Output (full file)
+ Total verbs: $total_verb_count
+ TolP verb threshold: $tolp_threshold
+ Verbs not following primary pattern: $not_primary_verbs
+ Total verb usage instances: $total_instances
+ Counts for total verb usage instances:
+ sem-subj as gram-subj vs. gram-obj. vs. gram-iobj: \d+ \d+ \d+
+ sem-obj as gram-subj vs. gram-obj. vs. gram-iobj: \d+ \d+ \d+
+ sem-iobj as gram-subj vs. gram-obj. vs. gram-iobj: \d+ \d+ \d+
+
+ verbs not following the primary pattern:
+ $not_primary_verb1, $not_primary_verb2, ...
+
+ verbs following the primary pattern:
+ $primary_verb1, $primary_verb2,  ...
+ ************
+ Link: sem-subj as gram-subj
+
+ Total link verbs >= threshold: $total_link_verb_count
+ TolP verb threshold: $tolp_link_threshold
+ Verb count not following primary link: $not_primary_link_verb_count
+ Verbs not following primary link: $not_primary_link_verbs
+ Verbs following the primary link: $primary_link_verbs
+
+ ***********
+ Link: gram-subj as sem-subj
+ ....
+
+ (will also include sem-obj as gram-obj, gram-obj as sem-obj, semi-iobj as gram-iobj, and gram-iobj as semi-iobj)
+
+
+# Example Usage ##
+ get_pattern_counts.pl -input_file "./input-representations/brown-eve-valian/brown-eve-valian.AbsCl-baker.thresh5.stats" -output_file "./output/brown-eve-valian/brown-eve-valian.AbsCl-baker.counts" -threshold 5
