@@ -1,7 +1,8 @@
 # linking-problem-code
 Code related to verb class learning with the Linking Problem
 
-### Readme file for (1) predicate_learner python code which is used to
+### Readme file for
+    (1) predicate_learner python code which is used to
     implement various theories of solving the linking problem as
     measured by the ability to form verb classes ("Predicate learner"
     therefore refers to verb learning) and (2) the Tolerance Principle
