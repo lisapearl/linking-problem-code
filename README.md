@@ -330,9 +330,10 @@ linking patterns)
          (iv) a list of which verbs follow that primary link (based on the Tolerance Principle) and which don't
 
 
-# input format
-# (such as for brown-eve-valian.AbsCl-baker.thresh5.stats or any other file created to be used as input to the linking pattern predicate-learner python code at https://github.com/lisapearl/linking-problem-code)
-# verbs are listed out in capitals with accompanying information following
+ input format
+ (such as for brown-eve-valian.AbsCl-baker.thresh5.stats or any other file created to be used as input to the linking pattern predicate-learner python code at https://github.com/lisapearl/linking-problem-code)
+ verbs are listed out in capitals with accompanying information following
+***
 ANSWER
 anim-gram-subj vs. inanim: 7 1
 anim-gram-obj vs. inanim: 0 8
@@ -343,12 +344,12 @@ sem-iobj as gram-subj vs. gram-obj vs. gram-iobj: 0 0 0
 frames:
 NP VB: 1
 ...
-***
+\***
 ASK
 ...
 
 
-# Output (full file)
+ Output (full file)
  Total verbs: $total_verb_count
  TolP verb threshold: $tolp_threshold
  Verbs not following primary pattern: $not_primary_verbs
@@ -379,5 +380,6 @@ ASK
  (will also include sem-obj as gram-obj, gram-obj as sem-obj, semi-iobj as gram-iobj, and gram-iobj as semi-iobj)
 
 
-# Example Usage ##
+***
+Example Usage ##
  get_pattern_counts.pl -input_file "./input-representations/brown-eve-valian/brown-eve-valian.AbsCl-baker.thresh5.stats" -output_file "./output/brown-eve-valian/brown-eve-valian.AbsCl-baker.counts" -threshold 5
