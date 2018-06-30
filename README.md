@@ -5,7 +5,11 @@ Code related to verb class learning with the Linking Problem
     (1) predicate_learner python code which is used to
     implement various theories of solving the linking problem as
     measured by the ability to form verb classes ("Predicate learner"
-    therefore refers to verb learning) and (2) the Tolerance Principle
+    therefore refers to verb learning)
+
+and
+
+    (2) the Tolerance Principle
     analysis code (derived-linking-tolp/get_pattern_counts.pl) which
     is used to do a link-based Tolerance Principle analysis on linking
     pattern data available in the input-representations subdirectory.
