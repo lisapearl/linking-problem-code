@@ -14,7 +14,7 @@ and
     is used to do a link-based Tolerance Principle analysis on linking
     pattern data available in the input-representations subdirectory.
 
-***Updated by Lisa Pearl, 6/29/18
+***Updated by Lisa Pearl, 1/4/19
 
 ***If using this code, please cite one or more of the following papers:
 Pearl, Lisa & Sprouse, Jon. 2018 manuscript. Comparing solutions to
@@ -325,7 +325,10 @@ Overview
 
 (1) takes in an input file encoding different properties of verb use within a corpus (formatting described below)
 
---- NOTE: Will ignore any verbs whose linking pattern usages are below a certain threshold (default 5 total usages)
+--- NOTE: Will ignore any verbs whose linking pattern usages are below
+a certain threshold (default 5 total usages)
+
+---NOTE: NOTE: Also takes in a multiplier, which is necessary for extrapolating corpus counts to true counts
 
 (2) Outputs information related to whether these verbs follow certain linking patterns
 

@@ -4,6 +4,7 @@
 
 # (1) takes in an input file encoding different properties of verb use within a corpus (formatting described below)
 #     --- NOTE: Will ignore any verbs whose linking pattern usages are below a certain threshold (default 5 total usages)
+#     --- NOTE: Also takes in a multiplier, which is necessary for extrapolating corpus counts to true counts
 # (2) Outputs information related to whether these verbs follow certain linking patterns
 #     (a) how many total verbs there are
 #     (b) what the Tolerance Principle (TolP) threshold would be for that many verbs
@@ -72,24 +73,27 @@
 
 
 ## Example Usage ##
-# get_pattern_counts.pl --input_file 'path/to/input_file' --output_file 'path/to/output/file' --threshold 2
+# get_pattern_counts.pl --input_file 'path/to/input_file' --output_file 'path/to/output/file' --threshold 2 --multiplier 60.2
 
 
 ###################
 
 $output_file = "pattern.counts"; # default
 $threshold = 5; # default
+$multiplier = 1; # default is to leave it alone
 
 # Get input folder (required) and output file (if specified)
 use Getopt::Long;
 GetOptions("input_file=s" => \$input_file, # file where verb info is 
 	   "output_file:s" => \$output_file, # can specify output file path, default = pattern.counts in current directory
-	   "threshold:i" => \$threshold # minimum linking pattern uses to be included in calculation
+	   "threshold:i" => \$threshold, # minimum linking pattern uses to be included in calculation
+	   "multiplier:f" => \$multiplier # multiplier to extrapolate from corpus counts to true counts
 	  );
 
 print(STDERR "Reading verb info from input file $input_file\n");
 print(STDERR "Printing out pattern count info to output file $output_file\n");
 print(STDERR "Only considering verbs with at least $threshold linking pattern uses\n");
+print(STDERR "Multiplier for extrapolating corpus counts to true counts = $multiplier\n");
 
 ### Data structure verb_info
 %verbs_info = ();
@@ -153,9 +157,9 @@ $verbs_info{"instances"}{"sem-iobj"}{"gram-iobj"} = 0;
 
 
 
-# (1) Read in verb information from input file and populate parts of verb_info data structure
+# (1) Read in verb information from input file and populate parts of verb_info data structure, given multiplier
 read_in_verb_info();
-# delete verbs with linking pattern uses below $threshold
+# delete verbs with linking pattern uses below $threshold * $multiplier
 delete_below_threshold_verbs();
 print("debug, after reading verbs in from $input_file, verb info is this:\n");
 print_verb_info();
@@ -432,7 +436,7 @@ sub calculate_verb_info{
 }
 
 sub delete_below_threshold_verbs{
-  # if total linking pattern uses below $threshold, delete $verb element
+  # if total linking pattern uses below $threshold * $multiplier, delete $verb element
   foreach my $verb (sort(keys($verbs_info{"verbs"}))){
     my $vb_total_instances = 0;
     foreach my $sem (keys($verbs_info{"verbs"}{$verb}{"instances"})){
@@ -442,7 +446,7 @@ sub delete_below_threshold_verbs{
     }
 
     # delete if below $threshold, otherwise add to verbs_info
-    if ($vb_total_instances < $threshold){
+    if ($vb_total_instances < $threshold * $multiplier){
       print("debug, delete_below_threshold_verbs: ***deleting $verb with $vb_total_instances uses\n");
       delete($verbs_info{"verbs"}{$verb});
     }else{
@@ -454,7 +458,7 @@ sub delete_below_threshold_verbs{
 }
 
 
-# Read in verb information from input file and populate relevant bits of verb_info
+# Read in verb information from input file and populate relevant bits of verb_info, given multiplier
 sub read_in_verb_info{
 
   my $verb; # for holding verb being processed
@@ -519,15 +523,16 @@ sub read_in_verb_info{
   close(VERBS_IN);
 }
 
+# incorporate multiplier effect here
 sub populate_verbs_info{
   my ($verb, $sem, $g_subj, $g_obj, $g_iobj) = @_;
 
   #print("debug, populate_verbs_info: populating for $verb and sem val $sem with gram-subj $g_subj, gram-obj $g_obj, and gram-iobj $g_iobj vals\n");
 	
   # populate info for this specific $verb
-  $verbs_info{"verbs"}{$verb}{"instances"}{$sem}{"gram-subj"} = $g_subj;
-  $verbs_info{"verbs"}{$verb}{"instances"}{$sem}{"gram-obj"} = $g_obj;
-  $verbs_info{"verbs"}{$verb}{"instances"}{$sem}{"gram-iobj"} = $g_iobj;
+  $verbs_info{"verbs"}{$verb}{"instances"}{$sem}{"gram-subj"} = $g_subj * $multiplier;
+  $verbs_info{"verbs"}{$verb}{"instances"}{$sem}{"gram-obj"} = $g_obj * $multiplier;
+  $verbs_info{"verbs"}{$verb}{"instances"}{$sem}{"gram-iobj"} = $g_iobj * $multiplier;
 
   #print("debug, populate_verbs_info info for $sem\n");
   #print("$verbs_info{\"verbs\"}{$verb}{\"instances\"}{$sem}{\"gram-subj\"} ");
@@ -537,9 +542,9 @@ sub populate_verbs_info{
   #print_verb_info();
   
   # update info for general verbs collective
-  $verbs_info{"instances"}{$sem}{"gram-subj"} += $g_subj;
-  $verbs_info{"instances"}{$sem}{"gram-obj"} += $g_obj;
-  $verbs_info{"instances"}{$sem}{"gram-iobj"} += $g_iobj;
+  $verbs_info{"instances"}{$sem}{"gram-subj"} += $g_subj * $multiplier;
+  $verbs_info{"instances"}{$sem}{"gram-obj"} += $g_obj * $multiplier;
+  $verbs_info{"instances"}{$sem}{"gram-iobj"} += $g_iobj * $multiplier;
 
   #print("debug, populate_verbs_info\n");
   #print("all verbs gram-subj: $verbs_info{\"instances\"}{\"sem-subj\"}{\"gram-subj\"}\n");
